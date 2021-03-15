@@ -6,7 +6,7 @@ $make = filter_input(INPUT_POST, 'make', FILTER_SANITIZE_STRING);
 switch($action) {
     case 'list_makes' :
         $makes = get_all_makes();
-        include('./view/makes_list.php');
+        include('view/makes_list.php');
         break;
     
     case 'delete_make' :

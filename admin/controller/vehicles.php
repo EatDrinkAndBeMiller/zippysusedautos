@@ -2,16 +2,19 @@
 
 switch($action) {
     case 'add_a_vehicle' :
+        echo '<script>alert("add_a_vehicle")</script>';
         add_a_vehicle($makeID, $typeID, $classID, $year, $model, $price);
         header("Location: .?action=list_for_add_a_vehicle");
         break;
 
     case 'delete_vehicle' :
+        echo '<script>alert("delete_vehicle")</script>';
         delete_a_vehicle($vehicleID);
         header("Location: .?action=list_for_add_a_vehicle");
         break;
 
     case 'list_for_add_a_vehicle' :
+        echo '<script>alert("list_for_add_a_vehicle")</script>';
         $makes = get_all_makes();
         $types = get_all_types();
         $classes = get_all_classes();
@@ -19,6 +22,7 @@ switch($action) {
         break;
 
     case 'list_by_trait':
+        echo '<script>alert("list_by_trait")</script>';
         if ($makeID && $sortBy == 'Price') {
             $vehicles = get_vehicles_by_make_price($makeID);
             $makes = get_all_makes();

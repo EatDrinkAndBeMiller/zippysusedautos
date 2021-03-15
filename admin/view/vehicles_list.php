@@ -1,7 +1,7 @@
 <?php include('header.php') ?>
 
 <?=$action?>
-<div class="row">
+<div class="row  justify-content-md-center">
     <div class="col-lg-6">
     <section id="list" class="list">
 
@@ -9,7 +9,8 @@
             <input type="hidden" name="action" value="list_by_trait">
         
         <!--select a specfic make to list-->
-            <select name="makeID">
+        <div class="mb-3">
+            <select name="makeID" class="form-select" aria-label="Default select example">
                 <option value="0">View All Makes</option>
                 <?php foreach ($makes as $make) : ?>
                 <?php if ($makeID == $make['make_id']) { ?>
@@ -21,10 +22,11 @@
                     </option>
                 <?php endforeach; ?>
             </select>
+        </div>
 
         <!--listing specific type-->
-            <select name="typeID">
-            <!-- <input type="hidden" name="selection" value="list_by_type"> -->
+        <div class="mb-3">
+            <select name="typeID" class="form-select" aria-label="Default select example">
                 <option value="0">View All Types</option>
 
                 <?php foreach ($types as $type) : ?>
@@ -37,10 +39,10 @@
                     </option>
                 <?php endforeach; ?>
             </select>
-
+        </div>
             <!--listing specific class-->
-            <select name="classID">
-            <!-- <input type="hidden" name="selection" value="list_by_class"> -->
+        <div class="mb-3">
+            <select name="classID" class="form-select" aria-label="Default select example">
                 <option value="0">View All Classes</option>
 
                 <?php foreach ($classes as $class) : ?>
@@ -53,35 +55,27 @@
                     </option>
                 <?php endforeach; ?>
             </select>
+        </div>
 
-            <br><br>
-            <h6>Sort By:</h6>
+            <br>
+        <div class="d-flex">
+            <h6>Sort By:</h6> &nbsp; &nbsp;
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sortBy" value="Price" id="Price" checked>
                 <label class="form-check-label" for="Price">
                     Price
                 </label>
-            </div>
+            </div> &nbsp; &nbsp;
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sortBy" value="Year" id="Year">
                 <label class="form-check-label" for="Year">
                     Year
                 </label>
-            </div>
+            </div> &nbsp; &nbsp;
             <button class="btn btn-primary">Search</button>
+        </div>
         </form>
     </section>
-    </div>
-
-    <div class="col-lg-6">
-        <section>
-            <!-- <p><a href=".?action=list_for_add_a_vehicle">Add a Vehicle</a></p> -->
-            <form action="." method="POST" id="list_for_add_a_vehicle">
-            <input type="hidden" name="action" value="list_for_add_a_vehicle">
-            <button type="submit" class="btn btn-info">Add a Vehicle</button>
-            </form> 
-
-        </section>
     </div>
 </div>
 

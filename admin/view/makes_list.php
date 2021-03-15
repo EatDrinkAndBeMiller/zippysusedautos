@@ -47,24 +47,8 @@
 
 <br><br>
 <div  class="row justify-content-md-center">
-    <div class="col col-md-4">
+    <div class="col col-md-5">
         <h5><a href=".">Return to Vehicle List</a></h5>
-        <br>
-            <!-- <p><a href=".?action=list_for_add_a_vehicle">Add a Vehicle</a></p> -->
-            <form action="." method="POST" id="list_for_add_a_vehicle">
-            <input type="hidden" name="action" value="list_for_add_a_vehicle">
-            <button class="btn btn-info">Add a Vehicle</button>
-            </form> 
-        <!-- <p><a href=".?action=list_types">View/Edit Types</a></p> -->
-        <form action="." method="POST" id="edit_types">
-        <input type="hidden" name="action" value="list_types">
-        <button class="btn btn-info">View & Edit Types</button>
-        </form>
-        <!-- <p><a href=".?action=list_class">View/Edit Classes</a></p> -->
-        <form action="." method="POST" id="edit_classes">
-        <input type="hidden" name="action" value="list_classes">
-        <button class="btn btn-info">View & Edit Classes</button>
-        </form>
     </div>
 </div>
 

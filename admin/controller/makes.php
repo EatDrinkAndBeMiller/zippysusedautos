@@ -17,3 +17,4 @@ switch($action) {
         $makes = get_all_makes();
         include('view/makes_list.php');
 }
+

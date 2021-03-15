@@ -1,5 +1,6 @@
 <?php include('header.php') ?>
 
+<?=$action?>
 <div class="row  justify-content-md-center">
     <div class="col-lg-6">
     <form action="." method="POST">

@@ -6,6 +6,18 @@ require('../model/types_db.php');
 require('../model/class_db.php');
 require('../model/makes_db.php');
 
+$makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
+$typeID = filter_input(INPUT_POST, 'typeID', FILTER_VALIDATE_INT);
+$classID = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
+$sortBy = filter_input(INPUT_POST, 'sortBy', FILTER_SANITIZE_STRING);
+$year = filter_input(INPUT_POST, 'year', FILTER_VALIDATE_INT);
+$model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING);
+$price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_INT);
+$vehicleID = filter_input(INPUT_POST, 'vehicleID', FILTER_VALIDATE_INT);
+$make = filter_input(INPUT_POST, 'make', FILTER_SANITIZE_STRING);
+$className = filter_input(INPUT_POST, 'className', FILTER_SANITIZE_STRING);
+$typeName = filter_input(INPUT_POST, 'typeName', FILTER_SANITIZE_STRING);
+
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if(!$action) {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);

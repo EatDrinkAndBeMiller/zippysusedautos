@@ -80,20 +80,7 @@
             <input type="hidden" name="action" value="list_for_add_a_vehicle">
             <button type="submit" class="btn btn-info">Add a Vehicle</button>
             </form> 
-            <!-- <p><a href=".?action=list_makes">View/Edit Makes</a></p> -->
-            <form action="." method="GET">
-                <button class="btn btn-info" name="action" value="list_makes">View/Edit Makes</button>
-            </form>
-            <!-- <p><a href=".?action=list_types">View/Edit Types</a></p> -->
-            <form action="." method="POST">
-            <input type="hidden" name="action" value="list_types">
-            <button class="btn btn-info">View/Edit Types</button>
-            </form>
-            <!-- <p><a href=".?action=list_class">View/Edit Classes</a></p> -->
-            <form action="." method="POST">
-            <input type="hidden" name="action" value="list_classes">
-            <button class="btn btn-info">View/Edit Class</button>
-            </form>
+
         </section>
     </div>
 </div>

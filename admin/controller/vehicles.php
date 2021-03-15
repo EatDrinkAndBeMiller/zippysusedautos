@@ -19,12 +19,12 @@ switch($action) {
 
     case 'add_a_vehicle' :
         add_a_vehicle($makeID, $typeID, $classID, $year, $model, $price);
-        header("Location: view/add_vehicle.php?vehicle_added");
+        header("Location: .");
         break;
 
     case 'delete_vehicle' :
         delete_a_vehicle($vehicleID);
-        header("Location: .?vehicle_deleted");
+        header("Location: .");
         break;
 
     case 'list_by_trait':

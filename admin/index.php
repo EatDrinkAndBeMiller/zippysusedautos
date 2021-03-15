@@ -11,7 +11,7 @@ if(!$action) {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
     if(!$action) {
         $action = 'list_vehicles';
-    }
+    } 
 }  
 
 if($action == 'list_vehicles' || $action == 'list_by_trait' || $action == 'list_for_add_a_vehicle' || $action == 'add_a_vehicle' || $action='delete_vehicle' ) {

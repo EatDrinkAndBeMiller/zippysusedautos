@@ -8,7 +8,7 @@ switch($action) {
 
     case 'delete_vehicle' :
         delete_a_vehicle($vehicleID);
-        header("Location: .?action=list_for_add_a_vehicle");
+        header("Location: .?action=list_vehicles");
         break;
 
     case 'list_for_add_a_vehicle' :

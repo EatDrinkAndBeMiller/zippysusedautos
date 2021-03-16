@@ -1,77 +1,82 @@
 <?php include('header.php') ?>
 
-<?=$action?>
-<?=$sortBy?>
+<div class="row  justify-content-md-center">
+    <div class="col-lg-6">
+    <section id="list" class="list">
 
-<section id="list" class="list">
-
-    <form action="." method="post" id="listing" class="listing">
-        <input type="hidden" name="action" value="list_by_trait">
-    
-    <!--select a specfic make to list-->
-        <select name="makeID">
-       <!--  <input type="hidden" name="selection" value="list_by_make"> -->
-            <option value="0">View All Makes</option>
-            <?php foreach ($makes as $make) : ?>
-            <?php if ($makeID == $make['make_id']) { ?>
-                <option value="<?=$make['make_id'] ?>" selected>
-            <?php } else { ?>
-                <option value="<?=$make['make_id'] ?>">
-            <?php } ?>
-                <?=$make['Make'] ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-
-    <!--listing specific type-->
-        <select name="typeID">
-        <!-- <input type="hidden" name="selection" value="list_by_type"> -->
-            <option value="0">View All Types</option>
-
-            <?php foreach ($types as $type) : ?>
-            <?php if ($typeID == $type['type_id']) { ?>
-                <option value="<?=$type['type_id'] ?>" selected>
-            <?php } else { ?>
-                <option value="<?=$type['type_id'] ?>">
-            <?php } ?>
-                <?=$type['Type'] ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-
-        <!--listing specific class-->
-        <select name="classID">
-        <!-- <input type="hidden" name="selection" value="list_by_class"> -->
-            <option value="0">View All Classes</option>
-
-            <?php foreach ($classes as $class) : ?>
-            <?php if ($classID == $class['class_id']) { ?>
-                <option value="<?=$class['class_id'] ?>" selected>
-            <?php } else { ?>
-                <option value="<?=$class['class_id'] ?>">
-            <?php } ?>
-                <?=$class['Class'] ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-
-        <br><br>
-        <h6>Sort By:</h6>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="sortBy" value="Price" id="Price" checked>
-            <label class="form-check-label" for="Price">
-                Price
-            </label>
+        <form action="." method="post" id="listing" class="listing">
+            <input type="hidden" name="action" value="list_by_trait">
+        
+        <!--select a specfic make to list-->
+        <div class="mb-3">
+            <select name="makeID" class="form-select" aria-label="Default select example">
+                <option value="0">View All Makes</option>
+                <?php foreach ($makes as $make) : ?>
+                <?php if ($makeID == $make['make_id']) { ?>
+                    <option value="<?=$make['make_id'] ?>" selected>
+                <?php } else { ?>
+                    <option value="<?=$make['make_id'] ?>">
+                <?php } ?>
+                    <?=$make['Make'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="sortBy" value="Year" id="Year">
-            <label class="form-check-label" for="Year">
-                Year
-            </label>
+
+        <!--listing specific type-->
+        <div class="mb-3">
+            <select name="typeID" class="form-select" aria-label="Default select example">
+                <option value="0">View All Types</option>
+
+                <?php foreach ($types as $type) : ?>
+                <?php if ($typeID == $type['type_id']) { ?>
+                    <option value="<?=$type['type_id'] ?>" selected>
+                <?php } else { ?>
+                    <option value="<?=$type['type_id'] ?>">
+                <?php } ?>
+                    <?=$type['Type'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </div>
-        <button class="btn btn-primary">Search</button>
-    </form>
-</section>
+            <!--listing specific class-->
+        <div class="mb-3">
+            <select name="classID" class="form-select" aria-label="Default select example">
+                <option value="0">View All Classes</option>
+
+                <?php foreach ($classes as $class) : ?>
+                <?php if ($classID == $class['class_id']) { ?>
+                    <option value="<?=$class['class_id'] ?>" selected>
+                <?php } else { ?>
+                    <option value="<?=$class['class_id'] ?>">
+                <?php } ?>
+                    <?=$class['Class'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+            <br>
+        <div class="d-flex">
+            <h6>Sort By:</h6> &nbsp; &nbsp;
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sortBy" value="Price" id="Price" checked>
+                <label class="form-check-label" for="Price">
+                    Price
+                </label>
+            </div> &nbsp; &nbsp;
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sortBy" value="Year" id="Year">
+                <label class="form-check-label" for="Year">
+                    Year
+                </label>
+            </div> &nbsp; &nbsp;
+            <button class="btn btn-primary">Search</button>
+        </div>
+        </form>
+    </section>
+    </div>
+</div><br>
 
 <!--table of results-->
 <table class="table table-striped table-hover">

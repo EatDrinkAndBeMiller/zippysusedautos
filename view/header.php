@@ -15,3 +15,4 @@
    <header>
         <h1 class="text-center">Zippy's Used Autos</h1>
     </header>
+    <hr>

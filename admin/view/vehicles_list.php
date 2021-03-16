@@ -1,6 +1,5 @@
 <?php include('header.php') ?>
 
-<?=$action?>
 <div class="row  justify-content-md-center">
     <div class="col-lg-6">
     <section id="list" class="list">
@@ -77,7 +76,7 @@
         </form>
     </section>
     </div>
-</div>
+</div><br>
 
 <!--table of results-->
 <table class="table table-striped table-hover">

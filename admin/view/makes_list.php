@@ -1,7 +1,6 @@
 <?php include('header.php') ?>
 
-<br>
-<h4 class="text-center">Removing Vehicle Makes</h4>
+<h4 class="text-center title-text">Removing Vehicle Makes</h4>
 <br>
 
 <div class="container">
@@ -33,12 +32,12 @@
 </div>
 <br><br>
 
-<h4 class="text-center">Add a Vehicle Make</h4>
+<h4 class="text-center title-text">Add a Vehicle Make</h4><br>
 <div  class="row justify-content-md-center">
-    <div class="col col-md-4">
+    <div class="col col-md-5 d-flex">
         <form action="." method="POST">
             <input type="hidden" name="action" value="add_make">
-            <label for="make">Make: &nbsp; &nbsp;</label>
+            <label for="make">Make: &nbsp;</label>
             <input type="text" id="make" max="30" name="make" required> &nbsp; &nbsp;
             <button class="btn btn-primary">Add Make</button>
         </form>
@@ -46,11 +45,8 @@
 </div>
 
 <br><br>
-<div  class="row justify-content-md-center">
-    <div class="col col-md-5">
-        <h5><a href=".">Return to Vehicle List</a></h5>
-    </div>
-</div>
+    <h5 class="text-center"><a href=".">Return to Vehicle List</a></h5>
+
 
 
 <?php include('footer.php')?>

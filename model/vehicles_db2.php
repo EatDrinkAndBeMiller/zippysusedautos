@@ -1,5 +1,6 @@
 <?php
     //index
+    //$sortBy = filter_input(INPUT_POST, 'sortBy', FILTER_SANITIZE_STRING);
 /*     switch($action) {
         case 'list_by_trait':
             if ($makeID) {

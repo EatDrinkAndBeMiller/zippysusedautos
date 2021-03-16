@@ -79,45 +79,47 @@
 </div><br>
 
 <!--table of results-->
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-        <th scope="col">Year</th>
-        <th scope="col">Make</th>
-        <th scope="col">Model</th>
-        <th scope="col">Type</th>
-        <th scope="col">Class</th>
-        <th scope="col">Price</th>
-        <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($vehicles as $vehicle) :
-            $year = $vehicle['Year'];
-            $model = $vehicle['Model'];
-            $price = $vehicle['Price'];
-            $type = $vehicle['Type'];
-            $make = $vehicle['Make'];
-            $class = $vehicle['Class'];
-            $vehicleID = $vehicle['vehicleID'];
-            ?>
-        <tr>
-        <td><?=$year?></td>
-        <td><?=$make?></td>
-        <td><?=$model?></td>
-        <td><?=$type?></td>
-        <td><?=$class?></td>
-        <td>$<?=$price?></td>
-        <td>
-            <form action="." method="POST">
-                <input type="hidden" name="action" value="delete_vehicle">
-                <input type="hidden" name="vehicleID" value="<?=$vehicleID;?>">
-                <button class="btn btn-danger">Delete</button>
-            </form>
-        </td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Make</th>
+            <th scope="col">Model</th>
+            <th scope="col">Type</th>
+            <th scope="col">Class</th>
+            <th scope="col">Price</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($vehicles as $vehicle) :
+                $year = $vehicle['Year'];
+                $model = $vehicle['Model'];
+                $price = $vehicle['Price'];
+                $type = $vehicle['Type'];
+                $make = $vehicle['Make'];
+                $class = $vehicle['Class'];
+                $vehicleID = $vehicle['vehicleID'];
+                ?>
+            <tr>
+            <td><?=$year?></td>
+            <td><?=$make?></td>
+            <td><?=$model?></td>
+            <td><?=$type?></td>
+            <td><?=$class?></td>
+            <td>$<?=$price?></td>
+            <td>
+                <form action="." method="POST">
+                    <input type="hidden" name="action" value="delete_vehicle">
+                    <input type="hidden" name="vehicleID" value="<?=$vehicleID;?>">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
 <?php include('footer.php')?>

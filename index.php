@@ -7,7 +7,6 @@ require('model/vehicles_db.php');
 $makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
 $typeID = filter_input(INPUT_POST, 'typeID', FILTER_VALIDATE_INT);
 $classID = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
-$sortBy = filter_input(INPUT_POST, 'sortBy', FILTER_SANITIZE_STRING);
 
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if(!$action) {

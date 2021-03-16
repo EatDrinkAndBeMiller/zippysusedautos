@@ -9,7 +9,6 @@ require('../model/makes_db.php');
 $makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
 $typeID = filter_input(INPUT_POST, 'typeID', FILTER_VALIDATE_INT);
 $classID = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
-$sortBy = filter_input(INPUT_POST, 'sortBy', FILTER_SANITIZE_STRING);
 $year = filter_input(INPUT_POST, 'year', FILTER_VALIDATE_INT);
 $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_STRING);
 $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_INT);
@@ -26,12 +25,12 @@ if(!$action) {
     } 
 }  
 
-if($action == 'list_vehicles' || $action == 'list_by_trait' || $action == 'list_for_add_a_vehicle' || $action == 'add_a_vehicle' || $action='delete_vehicle' ) {
-    include('controller/vehicles.php');
-} else if($action == 'list_makes' || $action == 'delete_make' || $action == 'add_make') {
+if($action == 'list_makes' || $action == 'delete_make' || $action == 'add_make') {
     include('controller/makes.php');
 } else if($action == 'list_types' || $action == 'delete_type' || $action == 'add_type') {
     include('controller/types.php');
 } else if($action == 'list_classes' || $action == 'delete_class' || $action == 'add_class') {
     include('controller/classes.php');
+} else if($action == 'list_vehicles' || $action == 'list_by_trait' || $action == 'list_for_add_a_vehicle' || $action == 'add_a_vehicle' || $action='delete_vehicle' ) {
+    include('controller/vehicles.php');
 } 

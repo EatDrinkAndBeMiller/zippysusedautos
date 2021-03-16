@@ -1,0 +1,33 @@
+.backgrnd {
+    background-color:#1e2b37;
+    color:silver;
+    padding-top: 10px;
+}
+
+.backgrnd a:link {
+    color: rgb(57, 138, 192);
+}
+
+.backgrnd a:hover {
+    color: rgb(205, 231, 248);
+}
+
+.footer-text {
+    font-size: x-large;
+}
+
+.small-footer {
+    font-size: small;
+    font-style: italic;
+}
+
+.btn-primary {
+    background-color:#1e2b37;
+    color:silver;
+}
+
+.title-text {
+    font-weight: bold;
+    color: #1e2b37;
+    text-decoration: underline;
+}

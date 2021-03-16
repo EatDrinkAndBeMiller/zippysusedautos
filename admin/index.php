@@ -16,6 +16,7 @@ $vehicleID = filter_input(INPUT_POST, 'vehicleID', FILTER_VALIDATE_INT);
 $make = filter_input(INPUT_POST, 'make', FILTER_SANITIZE_STRING);
 $className = filter_input(INPUT_POST, 'className', FILTER_SANITIZE_STRING);
 $typeName = filter_input(INPUT_POST, 'typeName', FILTER_SANITIZE_STRING);
+$sortBy = filter_input(INPUT_POST, 'sortBy', FILTER_SANITIZE_STRING);
 
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if(!$action) {

@@ -79,6 +79,8 @@
 </div><br>
 
 <!--table of results-->
+<?php if($vehicles) { ?>
+
 <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead>
@@ -121,5 +123,11 @@
         </tbody>
     </table>
 </div>
+
+<?php } else { ?>
+<hr><h3>
+    There are no matching vehicles in Zippy&apos;s inventory.
+</h3>
+<?php } ?>
 
 <?php include('footer.php')?>

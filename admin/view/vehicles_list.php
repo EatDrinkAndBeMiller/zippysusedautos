@@ -5,7 +5,7 @@
     <section id="list" class="list">
 
         <form action="." method="post" id="listing" class="listing">
-            <input type="hidden" name="action" value="list_by_trait">
+            <input type="hidden" name="action" value="list_vehicles">
         
         <!--select a specfic make to list-->
         <div class="mb-3">

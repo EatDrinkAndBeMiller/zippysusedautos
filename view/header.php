@@ -15,4 +15,18 @@
    <header class="backgrnd">
         <h1 class="text-center">Zippy's Used Autos</h1><br>
     </header>
+
+    <!--conditional for what to display in the corner-->
+    <?php if($action !== 'register' && !isset($_SESSION['userid'])) { ?>
+        <h4 class="text-end" id="register-link"><a href='.?action=register'>Register</a></h4>
+    
+    <?php } else if($action == 'logout' || $action == 'register') { ?>
+        <h4 class="text-end"></h4>
+
+    <?php } else if(isset($_SESSION['userid']) && $action !== 'register' || $action !== 'logout') { ?>
+        <h4 class="text-end">Welcome, <?=$_SESSION['userid']?> &#40;<a href='.?action=logout'>logout</a> &#41; </h4>
+    
+    
+    <?php } ?>
+    
     <hr>

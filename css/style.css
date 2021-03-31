@@ -31,3 +31,8 @@
     color: #1e2b37;
     text-decoration: underline;
 }
+
+#register-link {
+    margin: 30px;
+    font-size: medium;
+}

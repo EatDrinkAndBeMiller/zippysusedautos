@@ -5,7 +5,7 @@
     <section id="list" class="list">
 
         <form action="." method="post" id="listing" class="listing">
-            <input type="hidden" name="action" value="list_by_trait">
+            <input type="hidden" name="action" value="list_vehicles">
         
         <!--select a specfic make to list-->
         <div class="mb-3">
@@ -79,36 +79,38 @@
 </div><br>
 
 <!--table of results-->
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-        <th scope="col">Year</th>
-        <th scope="col">Make</th>
-        <th scope="col">Model</th>
-        <th scope="col">Type</th>
-        <th scope="col">Class</th>
-        <th scope="col">Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($vehicles as $vehicle) :
-            $year = $vehicle['Year'];
-            $model = $vehicle['Model'];
-            $price = $vehicle['Price'];
-            $type = $vehicle['Type'];
-            $make = $vehicle['Make'];
-            $class = $vehicle['Class'];
-            ?>
-        <tr>
-        <td><?=$year?></td>
-        <td><?=$make?></td>
-        <td><?=$model?></td>
-        <td><?=$type?></td>
-        <td><?=$class?></td>
-        <td>$<?=$price?></td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Make</th>
+            <th scope="col">Model</th>
+            <th scope="col">Type</th>
+            <th scope="col">Class</th>
+            <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($vehicles as $vehicle) :
+                $year = $vehicle['Year'];
+                $model = $vehicle['Model'];
+                $price = $vehicle['Price'];
+                $type = $vehicle['Type'];
+                $make = $vehicle['Make'];
+                $class = $vehicle['Class'];
+                ?>
+            <tr>
+            <td><?=$year?></td>
+            <td><?=$make?></td>
+            <td><?=$model?></td>
+            <td><?=$type?></td>
+            <td><?=$class?></td>
+            <td>$<?=$price?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
 <?php include('footer.php')?>

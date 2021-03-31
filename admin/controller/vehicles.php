@@ -2,71 +2,52 @@
 
 switch($action) {
     case 'add_a_vehicle' :
-        add_a_vehicle($makeID, $typeID, $classID, $year, $model, $price);
+        if ($makeID && $typeID && $classID && $year && $model && $price) {
+            add_a_vehicle($makeID, $typeID, $classID, $year, $model, $price);
+        } else {
+            $error = "Invalid vehicle data. Check all fields and try again.";
+            include('view/error.php');
+            exit();
+        }
         header("Location: .?action=list_for_add_a_vehicle");
         break;
 
     case 'delete_vehicle' :
-        delete_a_vehicle($vehicleID);
+        if ($vehicle_id) {
+            try {
+                delete_a_vehicle($vehicleID);
+            } catch (PDOException $e) {
+                $error = "Missing or incorrect vehicle id.";
+                include('view/error.php');
+                exit();
+            }
+        }
         header("Location: .?action=list_vehicles");
         break;
 
     case 'list_for_add_a_vehicle' :
-        $makes = get_all_makes();
-        $types = get_all_types();
-        $classes = get_all_classes();
         include('view/add_vehicle.php');
         break;
 
-    case 'list_by_trait':
-        if ($makeID && $sortBy == 'Price') {
-            $vehicles = get_vehicles_by_make_price($makeID);
-            $makes = get_all_makes();
-            $types = get_all_types();
-            $classes = get_all_classes();
-        } else if ($makeID && $sortBy == 'Year') {
-            $vehicles = get_vehicles_by_make_year($makeID);
-            $makes = get_all_makes();
-            $types = get_all_types();
-            $classes = get_all_classes();
-        } else if ($typeID && $sortBy == 'Price') {
-            $vehicles = get_vehicles_by_type_price($typeID);
-            $makes = get_all_makes();
-            $types = get_all_types();
-            $classes = get_all_classes();
-        } else if ($typeID && $sortBy == 'Year') {
-            $vehicles = get_vehicles_by_type_year($typeID);
-            $makes = get_all_makes();
-            $types = get_all_types();
-            $classes = get_all_classes();
-        } else if ($classID && $sortBy == 'Price') {
-            $vehicles = get_vehicles_by_class_price($classID);
-            $makes = get_all_makes();
-            $types = get_all_types();
-            $classes = get_all_classes();
-        } else if ($classID && $sortBy == 'Year') {
-            $vehicles = get_vehicles_by_class_year($classID);
-            $makes = get_all_makes();
-            $types = get_all_types();
-            $classes = get_all_classes();
-        } else if ($sortBy == 'Year') {
-            $vehicles = get_all_vehicles_by_year();
-            $makes = get_all_makes();
-            $types = get_all_types();
-            $classes = get_all_classes();
-        } else {
-            $vehicles = get_all_vehicles_by_price();
-            $makes = get_all_makes();
-            $types = get_all_types();
-            $classes = get_all_classes();
-        }
-        include('view/vehicles_list.php');
-        break;
-
     default:
-        $vehicles = get_all_vehicles_by_price();
-        $makes = get_all_makes();
-        $types = get_all_types();
-        $classes = get_all_classes();
+        $vehicles = get_all_vehicles($sortBy);
+        if ($makeID) {
+            $make_name = get_make_name($makeID);
+            $vehicles = array_filter($vehicles, function($array) use ($make_name) {
+                return $array["Make"] === $make_name;
+            });
+        }
+        if ($typeID) {
+            $type_name = get_type_name($typeID);
+            $vehicles = array_filter($vehicles, function($array) use ($type_name) {
+                return $array["Type"] === $type_name;
+            });
+        }
+        if ($classID) {
+            $class_name = get_class_name($classID);
+            $vehicles = array_filter($vehicles, function($array) use ($class_name) {
+                return $array["Class"] === $class_name;
+            });
+        }
         include('view/vehicles_list.php');
 }

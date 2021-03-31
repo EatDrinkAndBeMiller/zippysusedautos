@@ -2,7 +2,16 @@
 
 switch($action) {
     case 'delete_class' :
-        delete_class($classID);
+        //this is the try/catch for the foreign key
+        if ($class_id) {
+            try {
+                delete_class($classID);
+            } catch (PDOException $e) {
+                $error = "You cannot delete a class if vehicles are assigned to the class ID.";
+                include('view/error.php');
+                exit();
+            }
+        }
         header("Location: .?action=list_classes");
         break;
     
@@ -12,6 +21,6 @@ switch($action) {
         break;
     
     case 'list_classes' :
-        $classes = get_all_classes();
+        //$classes = get_all_classes();
         include('./view/classes_list.php');
 }

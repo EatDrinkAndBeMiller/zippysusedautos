@@ -1,8 +1,9 @@
 <?php include('header.php') ?>
 
-<h2>Thank you for signing out, <?=$_SESSION['userid']?>. </h2>
-
+<!-- <h2>Thank you for signing out,  $_SESSION['userid']. </h2>
+ -->
 <?php 
+    $firstname = $_SESSION['userid'];
     unset($_SESSION['userid']);
     session_destroy();
 
@@ -16,6 +17,7 @@
     setcookie($name, '', $expire, $path, $domain, $secure, $httponly);
 ?>
 
+<h2>Thank you for signing out, <?=$firstname?>. </h2>
 <br>
 <p><a href=".">Return to Vehicle List</a></p>
 

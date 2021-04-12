@@ -1,10 +1,16 @@
 <?php
 
+//start session
+$lifetime = 60 * 60 * 24 * 14;
+session_set_cookie_params($lifetime, '/');
+session_start();
+
 require('../model/database.php');
 require('../model/vehicles_db.php');
 require('../model/types_db.php');
 require('../model/class_db.php');
 require('../model/makes_db.php');
+require('../model/admin_db.php');
 
 //get required data for drop-downs
 $makes = get_all_makes();
@@ -27,6 +33,10 @@ $typeName = filter_input(INPUT_POST, 'typeName', FILTER_SANITIZE_STRING);
 $sortBy = filter_input(INPUT_POST, 'sortBy', FILTER_SANITIZE_STRING);
 if (!$sortBy) $sortBy = 'Price';
 
+$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+$password = filter_input(INPUT_POST,'password', FILTER_SANITIZE_STRING);
+$confirm_password = filter_input(INPUT_POST, 'pwConfirm', FILTER_SANITIZE_STRING);
+
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if(!$action) {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
@@ -35,7 +45,12 @@ if(!$action) {
     } 
 }  
 
-if($action == 'list_makes' || 
+if($action == 'login' ||
+    $action == 'show_login' ||
+    $action == 'register' ||
+    $action == 'show_register' ||
+    $action == 'logout') {include('controller/admin.php');
+} else if($action == 'list_makes' || 
     $action == 'delete_make' || 
     $action == 'add_make') {include('controller/makes.php');
 } else if($action == 'list_types' || 

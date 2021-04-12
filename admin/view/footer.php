@@ -10,6 +10,11 @@
             <p><a href=".?action=list_classes">View/Edit Classes</a></p>
         </div>
     </div>
+    <div class="row justify-content-md-center footer-text">
+        <div class="col">
+            <p><a href=".?action=show_register">Register New Admin User</a></p>
+        </div>
+    </div>
     
     <br>
     <p class="copyright small-footer"> &copy; 

@@ -1,3 +1,5 @@
+<?php include('util/valid_admin.php')?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,4 +19,5 @@
         <h3 class="text-center">Admin</h3>  
     <br>
     </header>
+    <h4 class="text-end"><a href='.?action=logout'>Logout</a></h4>
 <hr>

@@ -18,7 +18,11 @@
 
     <div class="row">
         <div class="col">
-            <h4><a href="./admin/index.php">Admin Site login</a></h4>
+            <?php if($action == 'logout' || $action == 'register') { ?>
+                <h4 class="text-end"></h4>
+            <?php } else { ?>
+                <h4><a href="./admin/index.php">Admin Site login</a></h4>
+            <?php } ?>
         </div>
         <div class="col">
             <!--conditional for what to display in the corner-->

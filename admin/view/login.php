@@ -41,6 +41,12 @@
         </form>
         </div>
     </div>
+
+    <div class="row justify-content-md-center login-screen">
+        <div class="col-lg-6">
+            <h4><a href="../index.php">Return to the public site</a></h4>
+        </div>
+    </div>
 </main>
 </body>
 </html>

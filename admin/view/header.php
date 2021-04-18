@@ -19,5 +19,12 @@
         <h3 class="text-center">Admin</h3>  
     <br>
     </header>
-    <h4 class="text-end"><a href='.?action=logout'>Logout</a></h4>
+    <div class="row">
+        <div class="col">
+            <h4><a href="../index.php">Public Site</a></h4>
+        </div>
+        <div class="col">
+            <h4 class="text-end"><a href='.?action=logout'>Logout</a></h4>
+        </div>
+    </div>
 <hr>

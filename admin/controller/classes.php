@@ -5,7 +5,7 @@ switch($action) {
         //this is the try/catch for the foreign key
         if ($class_id) {
             try {
-                delete_class($classID);
+                ClassDB::delete_class($classID);
             } catch (PDOException $e) {
                 $error = "You cannot delete a class if vehicles are assigned to the class ID.";
                 include('view/error.php');
@@ -16,7 +16,7 @@ switch($action) {
         break;
     
     case 'add_class' :
-        add_class($className);
+        ClassDB::add_class($className);
         header("Location: .?action=list_classes");
         break;
     

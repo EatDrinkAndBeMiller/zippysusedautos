@@ -12,9 +12,9 @@ require('model/class_db.php');
 require('model/types_db.php');
 
 //get required data regardless of sort (this is in all original switch statements)
-$makes = get_all_makes();
-$types = get_all_types();
-$classes = get_all_classes();
+$makes = MakesDB::get_all_makes();
+$types = TypesDB::get_all_types();
+$classes = ClassDB::get_all_classes();
 
 //filter parameters
 $makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
@@ -48,22 +48,21 @@ switch($action) {
 
     default: 
         // Extra credit solution -- this allows drop-downs to work together
-        $vehicles = get_all_vehicles($sortBy);
+        $vehicles = VehiclesDB::get_all_vehicles($sortBy);
         if ($makeID) {
-            $make_name = get_make_name($makeID);
-            //need to look up "function() use()
+            $make_name = MakesDB::get_make_name($makeID);
             $vehicles = array_filter($vehicles, function($array) use ($make_name) {
                 return $array["Make"] === $make_name;
             });
         }
         if ($typeID) {
-            $type_name = get_type_name($typeID);
+            $type_name = TypesDB::get_type_name($typeID);
             $vehicles = array_filter($vehicles, function($array) use ($type_name) {
                 return $array["Type"] === $type_name;
             });
         }
         if ($classID) {
-            $class_name = get_class_name($classID);
+            $class_name = ClassDB::get_class_name($classID);
             $vehicles = array_filter($vehicles, function($array) use ($class_name) {
                 return $array["Class"] === $class_name;
             });

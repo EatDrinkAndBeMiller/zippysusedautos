@@ -3,7 +3,7 @@
 switch($action) {
     case 'add_a_vehicle' :
         if ($makeID && $typeID && $classID && $year && $model && $price) {
-            add_a_vehicle($makeID, $typeID, $classID, $year, $model, $price);
+            VehiclesDB::add_a_vehicle($makeID, $typeID, $classID, $year, $model, $price);
         } else {
             $error = "Invalid vehicle data. Check all fields and try again.";
             include('view/error.php');
@@ -15,7 +15,7 @@ switch($action) {
     case 'delete_vehicle' :
         if ($vehicle_id) {
             try {
-                delete_a_vehicle($vehicleID);
+                VehiclesDB::delete_a_vehicle($vehicleID);
             } catch (PDOException $e) {
                 $error = "Missing or incorrect vehicle id.";
                 include('view/error.php');
@@ -30,21 +30,21 @@ switch($action) {
         break;
 
     default:
-        $vehicles = get_all_vehicles($sortBy);
+        $vehicles = VehiclesDB::get_all_vehicles($sortBy);
         if ($makeID) {
-            $make_name = get_make_name($makeID);
+            $make_name = MakesDB::get_make_name($makeID);
             $vehicles = array_filter($vehicles, function($array) use ($make_name) {
                 return $array["Make"] === $make_name;
             });
         }
         if ($typeID) {
-            $type_name = get_type_name($typeID);
+            $type_name = TypesDB::get_type_name($typeID);
             $vehicles = array_filter($vehicles, function($array) use ($type_name) {
                 return $array["Type"] === $type_name;
             });
         }
         if ($classID) {
-            $class_name = get_class_name($classID);
+            $class_name = ClassDB::get_class_name($classID);
             $vehicles = array_filter($vehicles, function($array) use ($class_name) {
                 return $array["Class"] === $class_name;
             });

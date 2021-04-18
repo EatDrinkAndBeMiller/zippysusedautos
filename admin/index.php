@@ -13,9 +13,9 @@ require('../model/makes_db.php');
 require('../model/admin_db.php');
 
 //get required data for drop-downs
-$makes = get_all_makes();
-$types = get_all_types();
-$classes = get_all_classes();
+$makes = MakesDB::get_all_makes();
+$types = TypesDB::get_all_types();
+$classes = ClassDB::get_all_classes();
 
 $makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
 $typeID = filter_input(INPUT_POST, 'typeID', FILTER_VALIDATE_INT);

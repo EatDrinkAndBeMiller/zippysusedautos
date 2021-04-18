@@ -16,17 +16,22 @@
         <h1 class="text-center">Zippy's Used Autos</h1><br>
     </header>
 
-    <!--conditional for what to display in the corner-->
-    <?php if($action !== 'register' && !isset($_SESSION['userid'])) { ?>
-        <h4 class="text-end" id="register-link"><a href='.?action=register'>Register</a></h4>
-    
-    <?php } else if($action == 'logout' || $action == 'register') { ?>
-        <h4 class="text-end"></h4>
+    <div class="row">
+        <div class="col">
+            <h4><a href="./admin/index.php">Admin Site login</a></h4>
+        </div>
+        <div class="col">
+            <!--conditional for what to display in the corner-->
+            <?php if($action !== 'register' && !isset($_SESSION['userid'])) { ?>
+                <h4 class="text-end"><a href='.?action=register'>Register</a></h4>
+            
+            <?php } else if($action == 'logout' || $action == 'register') { ?>
+                <h4 class="text-end"></h4>
 
-    <?php } else if(isset($_SESSION['userid']) && $action !== 'register' || $action !== 'logout') { ?>
-        <h4 class="text-end">Welcome, <?=$_SESSION['userid']?> &#40;<a href='.?action=logout'>logout</a> &#41; </h4>
-    
-    
-    <?php } ?>
-    
+            <?php } else if(isset($_SESSION['userid']) && $action !== 'register' || $action !== 'logout') { ?>
+                <h4 class="text-end">Welcome, <?=$_SESSION['userid']?> &#40;<a href='.?action=logout'>logout</a> &#41; </h4>
+            
+            <?php } ?>
+        </div>
+    </div>
     <hr>
